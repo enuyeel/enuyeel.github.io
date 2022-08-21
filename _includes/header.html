@@ -1,0 +1,23 @@
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+<header class="header">
+  <div class="menu">
+    <div class="profile-image-container">
+      <img class="profile-image" id="profile-image" src="/assets/blog1.png">
+    </div>
+    <ul>  
+      <li><a id="mxmz_btn"></a></li>
+      <li><a id="color_scheme_btn"></a></li>
+    </ul>
+    <ul>
+      {%- for path in page_paths -%}
+        {%- assign my_page = site.pages | where: "path", path | first -%}
+        {%- if my_page.title -%}
+        <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</header>
+
+<!-- global script -->
+<script src="{{ "/assets/js/main.js" | relative_url }}" async></script>

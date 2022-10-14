@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self'; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; media-src 'self'; object-src 'self'; child-src 'self'; form-action 'none'; base-uri 'self'" />
+<meta http-equiv="Content-Security-Policy" content="
+default-src 'none'; 
+script-src 'self' 
+https://cdn.jsdelivr.net/npm/mathjax@3/; 
+style-src 'self' 
+https://fonts.googleapis.com 
+'sha256-JLEjeN9e5dGsz5475WyRaoA4eQOdNPxDIeUhclnJDCE=' 
+'sha256-mQyxHEuwZJqpxCw3SLmc4YOySNKXunyu2Oiz1r3/wAE=' 
+'sha256-OCf+kv5Asiwp++8PIevKBYSgnNLNUZvxAp4a7wMLuKA=' 
+'sha256-trR7JwveKVMgnodBl3ld+T42sD/8Nob3daQDT5n8sYw=' 
+'sha256-NrquG8Bjbr/lV4VdpncGnR7MfOFL1V4s0iORCTfltVI='
+'sha256-f5Bw8pK7eF1+j93fpSMBM7JixNi4Qz0EiZP52M6y+qE='
+'sha256-ygKxBw9W2g6dT6rovk9dCpe2SnwqaUdSDM8foJG8uZ0='
+'sha256-DfgCyT/nCg4NXLwuizjFf5YFtprvSDczQB2D9PW3XZs='
+'sha256-q++0yreTQZLPINxxCZeUJgwK7FrXjcb10HDYN/6DV18='
+'sha256-krtmKxV0+Ovx7PUVnARSLipPPbR3FlpaNGhR9T4iF58='; 
+img-src 'self'; 
+font-src 'self' 
+https://fonts.gstatic.com 
+https://cdn.jsdelivr.net/npm/mathjax@3/; 
+connect-src 'self'; 
+media-src 'self'; 
+object-src 'self'; 
+child-src 'self'; 
+form-action 'none'; 
+base-uri 'self'" />
 <meta http-equiv="X-XSS-Protection"  content="1;mode=block" always>
 <meta http-equiv="Referrer-Policy" content="no-referrer, strict-origin-when-cross-origin">
 

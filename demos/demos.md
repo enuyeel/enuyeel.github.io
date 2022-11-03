@@ -4,8 +4,12 @@ layout: default
 permalink: /demos
 ---
 
->[Raytracing<br>C++ &#124; Emscripten &#124; WebGPU &#124; WGSL (Compute Shader)](/demos/raytracing)
+# Graphics
 
-> ***
+>[Raytracing<br>WebGPU / WGSL (Compute Shader) / C++<br>Requires Chrome Canary & "--enable-unsafe-webgpu" on.](/demos/raytracing)
 
->[Physically Based Rendering : Analytical Light Sources<br>OpenGL(WebGL) &#124; GLSL (Fragment Shader)](https://www.shadertoy.com/view/slyczW)
+>[Image Processing #1<br>OpenGL(WebGL) / C++<br>Addition, Subtraction, Product, Negative, ...](/demos/imageProcessing/1)
+
+>[Image Processing #2<br>OpenGL(WebGL) / C++<br>Histogram Equalization, Gaussian Smoothing, ...](/demos/imageProcessing/2)
+
+>[Physically Based Rendering : Analytical Light Sources<br>OpenGL(WebGL) / GLSL](https://www.shadertoy.com/view/slyczW)

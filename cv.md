@@ -11,7 +11,7 @@ permalink: /cv
 > ***Web Developer*** *(Full-time)*
 SUPERNATURAL Inc. (Daegu, S.Korea)
 2021 - 2022
-Tech Stack : JavaScript (Vue.js) / Golang (Echo Framework) / AWS / SQL
+Tech Stack : JavaScript (Vue.js) / Go / AWS / SQL
 
 # On-campus Experiences
 > ***Teacher Assistant*** *(Part-time)*

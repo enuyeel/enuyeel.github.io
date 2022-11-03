@@ -10,5 +10,3 @@ permalink: /blog
 > ***
 {% endif %}
 {% endfor %}
-
-<!-- <blockquote><p><a href="{{ post.url }}">{{ post.date | date_to_string }}<br>{{ post.title }}</a></p></blockquote> -->

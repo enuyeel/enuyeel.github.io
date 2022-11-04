@@ -4,7 +4,6 @@
 
 header_pages:
   - index.md
-  - cv.md
   - demos/demos.md
   - blog.md
 
@@ -12,6 +11,8 @@ header_pages:
 
 #style: light # dark (default) or light
 #listen_for_clients_preferred_style: true # true or false (default)
+
+markdown: kramdown
 
 plugins:
   - jekyll-seo-tag

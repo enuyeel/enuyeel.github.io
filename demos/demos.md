@@ -6,10 +6,10 @@ permalink: /demos
 
 # Graphics
 
->[Raytracing<br>WebGPU / WGSL (Compute Shader) / C++<br>Requires Chrome Canary & "--enable-unsafe-webgpu" on.](/demos/raytracing)
+>[<font color='green'>Raytracing</font><br>WebGPU / WGSL (Compute Shader) / C++<br>*<font color='red'>Requires Chrome Canary & "--enable-unsafe-webgpu" on.</font>*](/demos/raytracing)
 
->[Image Processing #1<br>OpenGL(WebGL) / C++<br>Addition, Subtraction, Product, Negative, ...](/demos/imageProcessing/1)
+>[<font color='green'>Image Addition, Subtraction, Product, Negative, Log Transform, Power Transform, Connected Component Labeling</font><br>OpenGL(WebGL) / GLSL / C++<br>](/demos/imageProcessing/1)
 
->[Image Processing #2<br>OpenGL(WebGL) / C++<br>Histogram Equalization, Gaussian Smoothing, ...](/demos/imageProcessing/2)
+>[<font color='green'>Histogram Equalization / Matching, Gaussian Smoothing, Sobel Operator, Unsharp Masking</font><br>OpenGL(WebGL) / GLSL / C++<br>](/demos/imageProcessing/2)
 
->[Physically Based Rendering : Analytical Light Sources<br>OpenGL(WebGL) / GLSL](https://www.shadertoy.com/view/slyczW)
+>[<font color='green'>Physically Based Rendering : Analytical Light Sources</font><br>GLSL (Shadertoy)](https://www.shadertoy.com/view/slyczW)

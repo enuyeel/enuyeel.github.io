@@ -13,6 +13,19 @@ size = ((typeof(size) !== 'undefined') && (size !== null)) ? size : 'false';
 
 toggleMaximize(size);
 
+//[https://github.com/utterance/utterances/issues/549#issuecomment-907606127]
+function utterancesTheme () {
+  if (document.querySelector('.utterances-frame')) {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light'
+    const message = {
+      type: 'set-theme',
+      theme: theme
+    };
+    const iframe = document.querySelector('.utterances-frame');
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+}
+
 function setTheme(theme) {
   if (theme === "dark") {
     document.documentElement.setAttribute('data-theme', 'dark');
@@ -31,6 +44,7 @@ function setTheme(theme) {
     //document.getElementById("theme-toggle").classList.add('moon');
     //document.getElementById("theme-toggle").classList.remove('sun');
   }
+  //utterancesTheme();
 }
 
 function modeSwitcher() {

@@ -8,7 +8,7 @@ permalink: /blog/:year/:month/:day/:title
 
 <br>
 
-A Fourier series is a periodic function $$f(t)$$ represented by infinite sums of sinusoids, known as harmonics. Given the period $$T$$, and the Fourier coefficient $$c_k$$, its formula in complex form is written as follows:
+A Fourier series is a periodic function $$f(t)$$ represented by infinite sums of sinusoids. Given the period $$T$$, and the Fourier coefficient $$c_k$$, its formula in complex form is written as follows:
 
 $$f(t)=\sum_{k=-\infty}^{\infty}c_k\cdot e^{i2\pi\frac{k}{T}t}$$
 
@@ -16,23 +16,27 @@ It might not be too obvious how this formula lives up to its definition in its c
 
 <br>
 
-Before we start breaking down the original formula, let me gloss over the details of the Fourier coefficient $$c_k$$ for now, and let’s treat it like an ordinary complex number. Following is its formula in complex form:
+Before we start breaking down the original formula, let me gloss over the details of the Fourier coefficient $$c_k$$ for now, and let’s treat it like an ordinary complex number. Following is its formula in the complex form:
 
 $$c_k=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cdot e^{-i2\pi\frac{k}{T}t}dt$$
 
-By judging from its formula, the Fourier coefficient $$c_k$$ is a continuous sum (integral) of products between real number $$f(t)$$ and complex exponential term $$e^{-i2\pi\frac{k}{T}t}$$ over the range [$$-\frac{T}{2}$$,$$\frac{T}{2}$$]. We can check out that the $$\overline{c_k}$$, which is the complex conjugate of $$c_k$$, is equivalent to $$c_{-k}$$. Here's a short [**proof**](https://proofwiki.org/wiki/Exponential_Form_of_Complex_Conjugate) on that matter.
+By judging from its formula, the Fourier coefficient $$c_k$$ is a continuous sum (integral) of products between real number $$f(t)$$ and complex exponential term $$e^{-i2\pi\frac{k}{T}t}$$ over the range [$$-\frac{T}{2}$$,$$\frac{T}{2}$$]. 
+
+<br>
+
+Immediately, we can check out that its complex conjugate $$\overline{c_k}$$ is equivalent to $$c_{-k}$$. Here's a short [**proof**](https://proofwiki.org/wiki/Exponential_Form_of_Complex_Conjugate) on that matter.
 
 $$\overline{c_k}=c_{-k}=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cdot e^{i2\pi\frac{k}{T}t}dt$$
 
-Now we can start rewriting the complex Fourier series:
+Then, we can start rewriting the complex Fourier series:
 
 $$f(t)=\sum_{k=-\infty}^{\infty}c_k\cdot e^{i2\pi\frac{k}{T}t}$$
 
-$$=c_0+\sum_{k=1}^{\infty}(c_k\cdot e^{i2\pi\frac{k}{T}t}+c_{-k}\cdot e^{-i2\pi\frac{k}{T}t})\cdots ①$$
+$$=c_0+\sum_{k=1}^{\infty}(c_k\cdot e^{i2\pi\frac{k}{T}t}+c_{-k}\cdot e^{-i2\pi\frac{k}{T}t})\cdots (1)$$
 
 $$=c_0+\sum_{k=1}^{\infty}(c_k\cdot e^{i2\pi\frac{k}{T}t}+\overline{c_{k}\cdot e^{i2\pi\frac{k}{T}t}})$$
 
-Consider the sum of a complex number $$z$$ ($$a+bi$$) and its conjugate $$\overline{z}$$ is two times the real part of the complex number:
+Now, consider the sum of a complex number $$z$$ ($$a+bi$$) and its conjugate $$\overline{z}$$ is two times the real part of the complex number:
 
 $$z+\overline{z}=(a+bi)+(a-bi)=2a=2\cdot \mathcal{Re}\left\{ z \right\}$$
 
@@ -54,15 +58,23 @@ This is the real Fourier series, and the discrete variable $$k$$ here controls t
 
 <br>
 
-More on the details of the Fourier coefficient in the next section, but for now, consider the resulting sinusoid after the linear combination of a sine and a cosine wave should give us one of the components that contribute to the construction of the original signal $$f(t)$$. It is worth noting that adding together a sine and a cosine wave of the same period should produce another sinusoid with a change in amplitude and a phase shift. 
+More on the details of the Fourier coefficient in the next section, but for now, consider the resulting sinusoid after the linear combination of a sine and a cosine wave should give us one of the components that contribute to the construction of the original signal $$f(t)$$. 
 
 <br>
 
-There’s an additional representation of the real Fourier series, and it’s coming from the observation that the complex number in the Cartesian form $$a+bi$$ can be converted to the polar form $$re^{i\theta}$$. As a refresher, $$r$$ represents the magnitude of the vector plot of the complex number in the complex plane, while the $$\theta$$ represents the phase, which is the angle between the vector and the positive real axis. 
+It is worth noting that adding together a sine and a cosine wave of the same period should produce another sinusoid with a change in amplitude and a phase shift. 
 
 <br>
 
-Given the Fourier coefficient $$c_k$$ $$(a_k+b_ki)$$ in the Cartesian form, we can calculate its magnitude and the phase as follows:
+There’s an additional representation of the real Fourier series, and it’s coming from the observation that the complex number in the Cartesian form $$a+bi$$ can be converted to the polar form $$re^{i\theta}$$.
+
+<br>
+
+As a refresher, $$r$$ represents the magnitude of the vector plot of the complex number in the complex plane, while the $$\theta$$ represents the phase, which is the angle between the vector and the positive real axis. 
+
+<br>
+
+Given the Fourier coefficient $$c_k$$ $$(a_k+b_ki)$$ in the Cartesian form, we can calculate its magnitude and the phase to rewrite $$c_k$$ as follows:
 
 $$r=\sqrt{a_k^2+b_k^2}$$
 
@@ -70,7 +82,7 @@ $$\theta=tan^{-1}(\frac{b_k}{a_k})$$
 
 $$c_k=a_k+b_ki=re^{i\theta}=\sqrt{a_k^2+b_k^2}\cdot e^{i\cdot tan^{-1}(\frac{b_k}{a_k})}$$
 
-Then, we can rewrite the ① as follows:
+Then, we can rewrite the $$(1)$$ as follows:
 
 $$f(t)=c_0+\sum_{k=1}^{\infty}(c_k\cdot e^{i2\pi\frac{k}{T}t}+c_{-k}\cdot e^{-i2\pi\frac{k}{T}t})$$
 
@@ -80,7 +92,11 @@ Rewrite it with the property $$cos(\theta)=\frac{e^{i\theta}+e^{-i\theta}}{2}$$ 
 
 $$=c_0+2\sum_{k=1}^{\infty}(\sqrt{a_k^2+b_k^2}\cdot cos{(2\pi\frac{k}{T}t+tan^{-1}(\frac{b_k}{a_k}))})$$
 
-This is identical to the real Fourier series we derived earlier but less convoluting to follow in the sense that it involves only a single cosine function. One little catch here is that there’s an explicit phase shift term $$tan^{-1}(\frac{b_k}{a_k})$$, which was existing rather implicitly in a form of a linear combination earlier.
+This is identical to the real Fourier series we derived earlier but less confusing to our eyes since it involves only a single cosine function. 
+
+<br>
+
+One little catch here is that there’s now an explicit phase shift term $$tan^{-1}(\frac{b_k}{a_k})$$, which was rather implicitly suggested in the earlier form. 
 
 <br>
 
@@ -90,7 +106,11 @@ $$c_k=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cdot e^{-i2\pi\frac{k}{T}
 
 $$=\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cdot (cos(2\pi\frac{k}{T}t)-sin(2\pi\frac{k}{T}t)\cdot i)dt$$
 
-This is going to be a recurring concept for the Fourier transform as well, which we haven’t discussed yet, but if you want to know how much a sinusoid of a particular frequency contributes to an original signal, try multiplying the said signal with the original signal at each point to yield a new curve. If the frequency of a particular sinusoid matches that of the original signal, or in other words, matches one of its components’ frequency, the area under the curve is going to be a positive number.
+This is going to be a recurring concept for the Fourier transform as well, which we haven’t discussed yet, but if you want to know how much a sinusoid of a particular frequency contributes to an original signal, try multiplying the said signal with the original signal at each point to yield a new curve. 
+
+<br>
+
+If the frequency of a particular sinusoid matches that of the original signal, or in other words, matches one of its components’ frequency, the area under the curve is going to be a positive number.
 
 <br>
 
@@ -100,18 +120,18 @@ $$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot cos(2\p
 \frac{1}{2}, k=n\neq 0\\
 0, k\neq n\\
 1, k=n=0
-\end{cases}$$
+\end{cases}\cdots (2.1)$$
 
-$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt=0$$
+$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt=0\cdots (2.2)$$
 
 $$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}sin(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt=\begin{cases}
 \frac{1}{2}, k=n\neq 0\\
 0, k\neq n\\
-\end{cases}$$
+\end{cases}\cdots (2.3)$$
 
 There are a few ways to prove the above relations, and I used trigonometric identities. The other possible approach is using Euler’s formula.
 
-$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot cos(2\pi\frac{n}{T}t)dt$$
+$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot cos(2\pi\frac{n}{T}t)dt\cdots (2.1)$$
 
 Rewrite it with the trigonometric property $$cos(\alpha)\cdot cos(\beta)=\frac{1}{2}\cdot (cos(\alpha-\beta)+cos(\alpha+\beta))$$:
 
@@ -123,11 +143,15 @@ $$=\frac{1}{2T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{t}{T}(k-n))+cos(2\
 1, k=n=0
 \end{cases}$$
 
-We can now manually plug in random natural numbers to $$n$$ and $$k$$ in this integral formula for each of the cases. Considering the integration of any sinusoid over one period equals $$0$$, we can see that the resulting values do indeed check out. You can go ahead and eyeball the values for the rest of the formulas below.
+We can now manually plug in random natural numbers to $$n$$ and $$k$$ in this integral formula to verify the result for each case. 
 
 <br>
 
-$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt$$
+Considering the integration of any sinusoid over one period equals $$0$$, we can see that the resulting values do indeed check out. You can go ahead and follow the same eyeballing scheme to verify the rest of the formulas below.
+
+<br>
+
+$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt\cdots (2.2)$$
 
 Rewrite it with the trigonometric property $$cos(\alpha)\cdot sin(\beta)=\frac{1}{2}\cdot (sin(\alpha+\beta)-sin(\alpha-\beta))$$:
 
@@ -137,7 +161,7 @@ $$=\frac{1}{2T}\int_{-\frac{T}{2}}^{\frac{T}{2}}sin(2\pi\frac{t}{T}(k+n))-sin(2\
 
 <br>
 
-$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}sin(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt$$
+$$\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}sin(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{n}{T}t)dt\cdots (2.3)$$
 
 Rewrite it with the trigonometric property $$sin(\alpha)\cdot sin(\beta)=\frac{1}{2}\cdot (cos(\alpha-\beta)-cos(\alpha+\beta))$$:
 
@@ -148,7 +172,9 @@ $$=\frac{1}{2T}\int_{-\frac{T}{2}}^{\frac{T}{2}}cos(2\pi\frac{t}{T}(k-n))-cos(2\
 0, k\neq n\\
 \end{cases}$$
 
-Now we can go ahead and calculate a random Fourier coefficient of our choice to see how it expands with the above formulas. I have picked $$b_2$$ for my convenience.
+<br>
+
+Now we can go ahead and calculate a random Fourier coefficient of our choice to see how it expands with the above relations. I have picked $$b_2$$ for my convenience.
 
 $$L.H.S\;b_2=-\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}f(t)\cdot sin(2\pi\frac{2}{T}t)dt$$
 
@@ -156,9 +182,7 @@ Replace $$f(t)$$ with the Fourier series we derived earlier:
 
 $$=-\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}\left[  c_0+2\sum_{k=1}^{\infty}\left\{ a_k\cdot cos(2\pi\frac{k}{T}t)-b_k\cdot sin(2\pi\frac{k}{T}t) \right\}\right]\cdot sin(2\pi\frac{2}{T}t)dt$$
 
-$$=-\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}c_0\cdot sin(2\pi\frac{2}{T}t)$$
-
-$$+2\sum_{k=1}^{\infty}\left\{ a_k\cdot cos(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{2}{T}t)-b_k\cdot sin(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{2}{T}t) \right\}dt$$
+$$=-\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}c_0\cdot sin(2\pi\frac{2}{T}t)+2\sum_{k=1}^{\infty}\left\{ a_k\cdot cos(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{2}{T}t)-b_k\cdot sin(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{2}{T}t) \right\}dt$$
 
 $$=-\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}2\sum_{k=1}^{\infty}\left\{ -b_k\cdot sin(2\pi\frac{k}{T}t)\cdot sin(2\pi\frac{2}{T}t) \right\}dt$$
 
@@ -176,7 +200,11 @@ We can check out that most of the terms in this formula cancel out (integrate to
 
 <br>
 
-Let’s imagine a scenario where we lengthen the period $$T$$ for our periodic function $$f(t)$$, and try computing the Fourier series. In other words, calculate the Fourier coefficients $$c_k$$ for a set of points and try plotting a discrete graph, and repeat the procedure for different periods.
+Let’s imagine a scenario where we lengthen the period $$T$$ for our periodic function $$f(t)$$, and try computing the Fourier series. 
+
+<br>
+
+In other words, calculate the Fourier coefficients $$c_k$$ for a set of points and try plotting a discrete graph, and repeat the procedure for different periods.
 
 <br>
 
@@ -186,8 +214,6 @@ $$f(t)=\begin{cases}
 1, \left| t \right|\le \frac{\pi}{2}\\
 0, otherwise
 \end{cases}\;-\frac{T}{2}<t\le\frac{T}{2}$$
-
-<br>
 
 A frequency domain, in short, is where the horizontal axis represents the frequency ($$2\pi\frac{k}{T}$$ in this case), while the vertical axis represents the amplitude. Luckily, $$c_k$$ this time only has the real part. 
 
@@ -205,7 +231,7 @@ Then, if we change the bounds of integration from $$[-\frac{T}{2},\frac{T}{2}]$$
 
 $$\mathcal{F}{(f(t))}=\mathcal{F}{(\mu)}=\int_{-\infty }^{\infty }f(t)\cdot e^{-i2\pi\mu t}dt$$
 
-We can understand an aperiodic function as a periodic signal with an arbitrarily large period that’s padded with zeros outside the range it’s defined for, in other words, periodization of an aperiodic signal if simply put. 
+We can understand an aperiodic function as a periodic signal with an arbitrarily large period that’s padded with zeros outside the range it’s defined for; a periodization of an aperiodic signal if simply put.
 
 <br>
 
@@ -213,7 +239,11 @@ Considering that the Fourier series doesn’t exist for aperiodic functions, rou
 
 <br>
 
-Now to reconstruct a signal in the time domain with amplitudes information in the frequency domain, we perform an inverse Fourier transform. It can be interpreted as a continuous version of the Fourier series, and one dead giveaway is they both involve the linear combination of complex exponentials of the same sign.
+Now to reconstruct a signal in the time domain with amplitudes information in the frequency domain, we perform an inverse Fourier transform.
+
+<br>
+
+It can be interpreted as a continuous version of the Fourier series, and one dead giveaway is they both involve the linear combination of complex exponentials of the same sign.
 
 $$f(t)=\mathcal{F}^{-1}{(\mathcal{F}(\mu))}=\int_{-\infty }^{\infty }\mathcal{F}(\mu)\cdot e^{i2\pi\mu t}d\mu$$
 
@@ -229,23 +259,23 @@ I’ve skimped over a lot of the details in deriving the formula for the Fourier
 
 <br>
 
-We’ve arrived at the final form of the Fourier transform formula by starting off with the Fourier coefficient formula which works only for periodic functions. The question here is, does the Fourier transform work for periodic functions as well?
+We’ve arrived at the final form of the Fourier transform formula by starting off with the Fourier coefficient formula which works only for periodic functions. The question here is, *does the Fourier transform work for periodic functions as well?*
 
 <br>
 
-Because the Fourier transform is an integral over an infinite range, we must consider whether or not the integral for $$f(t)$$ converges. 
-
-<br>
-
-Sufficient conditions for $$f(t)$$ to meet for its Fourier transform to exist are the Dirichlet conditions. One of them being $$f(t)$$ to be absolutely integrable:
+Sufficient conditions for $$f(t)$$ to meet for its Fourier transform to exist are the Dirichlet conditions, where one of them being $$f(t)$$ to be absolutely integrable:
 
 $$\int_{-\infty}^{\infty}\left | f(t) \right |dt<\infty$$
+
+In other words, the Fourier transform is an integral over an infinite range, and we must consider whether or not the integral converges. 
+
+<br>
 
 This condition would raise an issue since a lot of the functions that we’ll commonly deal with (sinusoids, which happen to be periodic for instance) are not absolutely integrable. 
 
 <br>
 
-I’ll be introducing a unit impulse, and its properties in the next section, which can play a key role in finding the Fourier transform of a periodic signal. Once we’re over that, we’re basically left with an extremely powerful tool that works on just any kind of signal.
+I’ll be introducing a unit impulse, and its properties shortly in the next section, which can play a key role in finding the Fourier transform of a periodic signal. Once we’re over that, we’re basically left with an extremely powerful tool that works on just any kind of signal.
 
 <br>
 
@@ -360,16 +390,34 @@ $$=\sum_{k=-\infty}^{\infty}c_k\cdot \delta(\mu-\frac{k}{T})$$
 
 <br>
 
-[Brad Osgood, Stanford University. "The Fourier Transform and its Applications."](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf)
+[[1] Brad Osgood, Stanford University.<br />"The Fourier Transform and its Applications."](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf)
 
-[Erik Cheever, Swarthmore College. "Introduction to the Fourier Transform."](https://lpsa.swarthmore.edu/Fourier/Xforms/FXformIntro.html)
+<br>
 
-[Zhang, Xichu. "Orthogonal System and Fourier Series."](https://towardsdatascience.com/orthogonal-system-and-fourier-series-bec96510db98)
+[[2] Erik Cheever, Swarthmore College.<br />"Introduction to the Fourier Transform."](https://lpsa.swarthmore.edu/Fourier/Xforms/FXformIntro.html)
 
-[Veritasium. "The Algorithm That Transformed The World."](https://youtu.be/nmgFG7PUHfo)
+<br>
 
-[MIT OpenCourseWare. "Orthogonality Relations."](https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/618691a1edaa81b0a75303e09b4cb4b5_MIT18_03SCF11_s21_7text.pdf)
+[[3] Zhang, Xichu.<br />"Orthogonal System and Fourier Series."](https://towardsdatascience.com/orthogonal-system-and-fourier-series-bec96510db98)
 
-["Fourier Transform of 1." ProofWiki](https://proofwiki.org/wiki/Fourier_Transform_of_1)
+<br>
 
-[Riskin, Eve. "The Fourier Transform."](https://class.ece.uw.edu/235dl/EE235/Project/lesson15/lesson15.html)
+[[4] Veritasium.<br />"The Algorithm That Transformed The World."](https://youtu.be/nmgFG7PUHfo)
+
+<br>
+
+[[5] MIT OpenCourseWare.<br />"Orthogonality Relations."](https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/618691a1edaa81b0a75303e09b4cb4b5_MIT18_03SCF11_s21_7text.pdf)
+
+<br>
+
+[[6] "Fourier Transform of 1." ProofWiki](https://proofwiki.org/wiki/Fourier_Transform_of_1)
+
+<br>
+
+[[7] Riskin, Eve.<br />"The Fourier Transform."](https://class.ece.uw.edu/235dl/EE235/Project/lesson15/lesson15.html)
+
+<br>
+
+***
+
+<br>

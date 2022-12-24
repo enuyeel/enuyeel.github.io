@@ -2,10 +2,12 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 <meta http-equiv="Content-Security-Policy" content="
 default-src 'self'; 
-script-src 'self'; 
+script-src 'self'
+https://utteranc.es/client.js; 
 style-src 'self' 
 'unsafe-hashes'
 'sha256-D7ijG/zCql/YhNv8L8CBmT2MFN8VbXlJ6FtvYpYKeXU='
+'sha256-9HupEqQsOKAA3TMVtaZh8USULhFpwYGuWFk+44sVSgg='
 https://fonts.googleapis.com; 
 img-src 'self'; 
 font-src 'self' 
@@ -14,7 +16,8 @@ connect-src 'self';
 media-src 'self'; 
 object-src 'self'; 
 child-src 'self'; 
-frame-src 'self';
+frame-src 'self'
+https://utteranc.es/;
 form-action 'none'; 
 base-uri 'self'" />
 <meta http-equiv="X-XSS-Protection"  content="1;mode=block" always>

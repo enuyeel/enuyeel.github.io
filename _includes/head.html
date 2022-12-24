@@ -26,17 +26,28 @@
   <!-- fa 5.9.0 -->
   <link rel="stylesheet" type="text/css" href="{{ "/assets/css/fa.min.css" | relative_url }}">
 
-  <!-- <link rel="stylesheet" type="text/css" href="{{ "/assets/css/katex.min.css" | relative_url }}"> -->
+  <!-- Download a KaTeX release, 
+  copy katex.js, katex.css (or katex.min.js and katex.min.css to use minified versions), 
+  and the fonts directory, and include or import it like above. -->
+
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/katex/katex.min.css" | relative_url }}">
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <!-- <script defer src="{{ "/assets/katex/katex.min.js" | relative_url }}"></script> -->
+  <script defer src="{{ "/assets/katex/katex.js" | relative_url }}"></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <!-- <script defer src="{{ "/assets/katex/contrib/auto-render.min.js" | relative_url }}"></script> -->
+  <script defer src="{{ "/assets/katex/contrib/auto-render.js" | relative_url }}"></script>
 
   <!-- <script type="text/javascript" src="{{ "/assets/js/mathjax-local.js" | relative_url }}"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_HTML"></script> -->
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_CHTML-full"></script>
+  <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js?config=TeX-AMS_CHTML-full"></script> -->
 
-  <!--https://katex.org/docs/browser.html-->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous"> -->
+  <!-- global script -->
+  <script src="{{ "/assets/js/main.js" | relative_url }}" async></script>
 
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script> -->
+  <script src="{{ "/assets/js/mainSync.js" | relative_url }}"></script>
 
   <!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script> -->
 

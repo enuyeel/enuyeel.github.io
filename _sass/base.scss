@@ -1,16 +1,38 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
 
-.katex-display > .katex {
-  //display: inline-block;
-  //white-space: nowrap;
-  //max-width: 100%;
-  //overflow-x: scroll;
-  //overflow-y: hidden;
-  //overflow: scroll hidden;
-  overflow: auto hidden;
-  //text-align: initial;
-}
+// .katex-display > .katex {
+//   //display: inline-block;
+//   //white-space: nowrap;
+//   //max-width: 100%;
+//   //overflow-x: scroll;
+//   //overflow-y: auto;
+//   //overflow-y: hidden;
+//   overflow-x: auto hidden;
+//   //overflow-x: auto hidden;
+//   //text-align: initial;
+// }
+
+//[https://stackoverflow.com/questions/67146733/avoid-vertical-overflow-when-using-katex-with-horizontal-overflow]
+.katex-display { overflow: auto hidden }
+//.katex-display { overflow: scroll hidden }
+
+//[https://talk.observablehq.com/t/vertical-scroll-bars-on-display-katex/2304/4]
+.katex-display { padding: 1em 0 }
+
+// .katex-display > .katex { white-space: normal }
+// /* Add space between broken lines: */
+// .katex-display > .base { margin: 0.25em 0 }
+// /* Compensate by reducing space around display math */
+// .katex-display { margin: 0.5em 0; }
+
+// .katex-display > .katex {
+//   display: inline-block;
+//   white-space: nowrap;
+//   max-width: 100%;
+//   overflow-x: scroll;
+//   text-align: initial;
+// }
 
 /**
  * Style variables

@@ -1,6 +1,8 @@
 document.getElementById("mxmz_btn").addEventListener("click", sizeSwitcher);
 document.getElementById("color_scheme_btn").addEventListener("click", modeSwitcher);
 
+const afterThemeChangeEvent = new CustomEvent('afterThemeChange');
+
 let theme = localStorage.getItem('theme');
 
 theme = theme || (window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' : 'light');
@@ -13,38 +15,40 @@ size = ((typeof(size) !== 'undefined') && (size !== null)) ? size : 'false';
 
 toggleMaximize(size);
 
-//[https://github.com/utterance/utterances/issues/549#issuecomment-907606127]
-function utterancesTheme () {
-  if (document.querySelector('.utterances-frame')) {
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'github-dark' : 'github-light'
-    const message = {
-      type: 'set-theme',
-      theme: theme
-    };
-    const iframe = document.querySelector('.utterances-frame');
-    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
-  }
-}
-
 function setTheme(theme) {
+
+  let button = document.getElementById("color_scheme_btn");
+  
   if (theme === "dark") {
     document.documentElement.setAttribute('data-theme', 'dark');
     window.localStorage.setItem('theme', 'dark');
-    document.getElementById("color_scheme_btn").innerHTML = '<i class="fa fa-sun-o"></i> lightMode';
+    if (typeof button !== 'undefined')
+    {
+      button.innerHTML = '<i class="fa fa-sun-o"></i> lightMode';
+    }
     //document.getElementById("profile-image").src = "/assets/blog2.png";
     //document.getElementById("color_scheme_btn").innerText = "darkMode";
     //document.getElementById("theme-toggle").classList.add('sun');
     //document.getElementById("theme-toggle").classList.remove('moon');
-  } else {
+  } 
+  else 
+  {
     document.documentElement.setAttribute('data-theme', 'light');
     window.localStorage.setItem('theme', 'light');
-    document.getElementById("color_scheme_btn").innerHTML = '<i class="fa fa-moon-o"></i> darkMode';
+    if (typeof button !== 'undefined')
+    {
+      button.innerHTML = '<i class="fa fa-moon-o"></i> darkMode';
+    }
     //document.getElementById("profile-image").src = "/assets/blog1.png";
     //document.getElementById("color_scheme_btn").innerText = "lightMode";
     //document.getElementById("theme-toggle").classList.add('moon');
     //document.getElementById("theme-toggle").classList.remove('sun');
   }
-  //utterancesTheme();
+
+  if (typeof button !== 'undefined')
+  {  
+    button.dispatchEvent(afterThemeChangeEvent);
+  }
 }
 
 function modeSwitcher() {

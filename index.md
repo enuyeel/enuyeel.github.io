@@ -20,9 +20,6 @@ permalink: /
 
 # Demos
 
->[<font color='green'>Raytracing</font><br />WebGPU / WGSL (Compute Shader) / C++<br />*<font color='red'>Req. Chrome Canary, "--enable-unsafe-webgpu" enabled.</font>*](/demos/raytracing)
-<!-- <br /> -->
-
 >[<font color='green'>Image Addition, Subtraction, Product, Negative, Log Transform, Power Transform, Connected Component Labeling</font><br />OpenGL / GLSL / C++<br />*<font color='red'>Req. WebGL2 enabled.</font>*](/demos/imageProcessing/1)
 <!-- <br /> -->
 

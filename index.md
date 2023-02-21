@@ -18,10 +18,31 @@ permalink: /
 {% endif %}
 {% endfor %}
 
-# Demos
+# Thingamajig
 
->[<font color='green'>Image Addition, Subtraction, Product, Negative, Log Transform, Power Transform, Connected Component Labeling</font><br />](/demos/imageProcessing/1)
+<blockquote>
+<!-- <blockquote style="margin:auto;"> -->
 
->[<font color='green'>Histogram Equalization / Matching, Gaussian Smoothing, Sobel Operator, Unsharp Masking</font><br />](/demos/imageProcessing/2)
+<!-- <div style="margin: 0 auto;"> -->
 
->[<font color='green'>Worley Crater</font><br />](https://www.shadertoy.com/view/DlXXWr)
+<div class="demo-image-container">
+  <a href="https://www.shadertoy.com/view/dtBXWG">
+    <img class="demo-image" id="demo-image0" src="/assets/demo0_1920x1080.png">
+  </a>
+</div>
+
+<div class="demo-image-container">
+  <a href="https://www.shadertoy.com/view/DlXXWr">
+    <img class="demo-image" id="demo-image1" src="/assets/demo1-2_1920x1080.png">
+  </a>
+</div>
+
+<div class="demo-image-container">
+  <a href="https://www.shadertoy.com/view/DtsXDH">
+    <img class="demo-image" id="demo-image2" src="/assets/demo2_1920x1080.png">
+  </a>
+</div>
+
+<div class="clear"></div>
+
+</blockquote>

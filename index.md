@@ -33,13 +33,37 @@ permalink: /
 
 <div class="demo-image-container">
   <a href="https://www.shadertoy.com/view/DlXXWr">
-    <img class="demo-image" id="demo-image1" src="/assets/demo1-2_1920x1080.png">
+    <img class="demo-image" src="/assets/demo1-2_1920x1080.png">
   </a>
 </div>
 
 <div class="demo-image-container">
   <a href="https://www.shadertoy.com/view/DtsXDH">
-    <img class="demo-image" id="demo-image2" src="/assets/demo2_1920x1080.png">
+    <img class="demo-image" src="/assets/demo2_1920x1080.png">
+  </a>
+</div>
+
+<div class="demo-image-container">
+  <a href="/demo0">
+    <img class="demo-image" src="/assets/demo3-2_1600x900.png">
+  </a>
+</div>
+
+<div class="demo-image-container">
+  <a href="/demo1">
+    <img class="demo-image" src="/assets/demo4-2_1600x900.png">
+  </a>
+</div>
+
+<div class="demo-image-container">
+  <a href="/demo2">
+    <img class="demo-image" src="/assets/demo5-2_512x512.png">
+  </a>
+</div>
+
+<div class="demo-image-container">
+  <a href="/demo3">
+    <img class="demo-image" src="/assets/demo6-2_1600x900.png">
   </a>
 </div>
 

@@ -22,11 +22,13 @@ layout: default
 
   imagesLoaded( grid ).on( 'progress', function() {
     // layout Masonry after each image loads
+    console.log("image loaded");
     msnry.layout();
   });
 
   document.getElementById("mxmz_btn").addEventListener("click", 
     function( event ) {
+    console.log("maximize / minimize button pressed");
     // trigger layout
     msnry.layout();
   });

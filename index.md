@@ -80,6 +80,4 @@ permalink: /
 
 </div>
 
-<div class="clear"></div>
-
 </blockquote>

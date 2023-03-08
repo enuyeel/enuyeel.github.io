@@ -10,25 +10,38 @@ layout: default
 
 <script>
 
-  // init Masonry
   var grid = document.querySelector('.grid');
+  var msnry;
 
-  var msnry = new Masonry( grid, {
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    gutter: '.gutter-sizer',
-    percentPosition: true
+  imagesLoaded( grid, function() {
+    // init Isotope after all images have loaded
+    msnry = new Masonry( grid, {
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      gutter: '.gutter-sizer',
+      percentPosition: true
+    });
   });
 
-  imagesLoaded( grid ).on( 'progress', function() {
-    // layout Masonry after each image loads
-    console.log("image loaded");
-    msnry.layout();
-  });
+  // init Masonry
+  // var grid = document.querySelector('.grid');
+
+  // var msnry = new Masonry( grid, {
+  //   itemSelector: '.grid-item',
+  //   columnWidth: '.grid-sizer',
+  //   gutter: '.gutter-sizer',
+  //   percentPosition: true
+  // });
+
+  // imagesLoaded( grid ).on( 'progress', function() {
+  //   // layout Masonry after each image loads
+  //   console.log("image loaded");
+  //   msnry.layout();
+  // });
 
   document.getElementById("mxmz_btn").addEventListener("click", 
     function( event ) {
-    console.log("maximize / minimize button pressed");
+    //console.log("maximize / minimize button pressed");
     // trigger layout
     msnry.layout();
   });

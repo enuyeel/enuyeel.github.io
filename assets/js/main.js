@@ -104,6 +104,7 @@ function toggleMaximize(size) {
   {
     //ctner.style.width = "90%";
     ctner.style.maxWidth = "500px";
+    //ctner.style.maxWidth = "50%";
     if (document.getElementById("mxmz_btn")) 
     {
       //document.getElementById("mxmz_btn").innerHTML = "";
@@ -113,4 +114,16 @@ function toggleMaximize(size) {
 
     window.localStorage.setItem('maximize', 'false');
   }
+
+  if ((typeof(Masonry) === 'undefined') || 
+      (Masonry === null))
+    return;
+
+  var msnry = Masonry.data('.grid');
+
+  if ((typeof(msnry) === 'undefined') || 
+      (msnry === null))
+    return;
+  
+  msnry.layout();
 }

@@ -25,7 +25,11 @@ permalink: /
 
 <blockquote>
 
-<div class="grid">
+<div class="grid" data-masonry='{ 
+  "itemSelector": ".grid-item", 
+  "columnWidth": ".grid-sizer",
+  "gutter": ".gutter-sizer",
+  "percentPosition": true }'>
 
   <div class="grid-sizer"></div>
   <div class="gutter-sizer"></div>

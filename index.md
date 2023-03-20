@@ -36,55 +36,71 @@ permalink: /
 
   <div class="grid-item">
     <a href="https://www.shadertoy.com/view/Dsy3RK">
-      <img src="/assets/importance_sampling_visualized_1920x1080.png">
+      <img srcset="/assets/importance_sampling_visualized_1920x1080.png 1920w,
+                   /assets/importance_sampling_visualized_1440x810.png 1440w,
+                   /assets/importance_sampling_visualized_960x540.png 960w" alt="">
     </a>
   </div>
 
   <div class="grid-item">
     <a href="https://www.shadertoy.com/view/cs33R2">
-      <img src="/assets/demo7_1920x1080.png">
+      <img srcset="/assets/demo7_1920x1080.png 1920w,
+                   /assets/demo7_1440x810.png 1440w,
+                   /assets/demo7_960x540.png 960w" alt="">
     </a>
   </div>
 
   <div class="grid-item">
     <a href="https://www.shadertoy.com/view/dtBXWG">
-      <img src="/assets/demo0_1920x1080.png">
+      <img srcset="/assets/demo0_1920x1080.png 1920w,
+                   /assets/demo0_1440x810.png 1440w,
+                   /assets/demo0_960x540.png 960w" alt="">     
     </a>
   </div>
 
   <div class="grid-item">
     <a href="https://www.shadertoy.com/view/DlXXWr">
-      <img src="/assets/demo1-2_1920x1080.png">
+      <img srcset="/assets/demo1-2_1920x1080.png 1920w,
+                   /assets/demo1-2_1440x810.png 1440w,
+                   /assets/demo1-2_960x540.png 960w" alt="">   
     </a>
   </div>
 
   <div class="grid-item">
     <a href="https://www.shadertoy.com/view/DtsXDH">
-      <img src="/assets/demo2_1920x1080.png">
+      <img srcset="/assets/demo2_1920x1080.png 1920w,
+                   /assets/demo2_1440x810.png 1440w,
+                   /assets/demo2_960x540.png 960w" alt="">   
     </a>
   </div>
 
   <div class="grid-item">
     <a href="/demo2">
-      <img src="/assets/demo5-2_512x512.png">
+      <img srcset="/assets/demo5-2_512x512.png 512" alt="">   
     </a>
   </div>
 
   <div class="grid-item">
     <a href="/demo0">
-      <img src="/assets/demo3-2_1600x900.png">
+      <img srcset="/assets/demo3-2_1600x900.png 1600w,
+                   /assets/demo3-2_1200x675.png 1200w,
+                   /assets/demo3-2_800x450.png 800w" alt="">   
     </a>
   </div>
 
   <div class="grid-item">
     <a href="/demo1">
-      <img src="/assets/demo4-2_1600x900.png">
+      <img srcset="/assets/demo4-2_1600x900.png 1600w,
+                   /assets/demo4-2_1200x675.png 1200w,
+                   /assets/demo4-2_800x450.png 800w" alt="">   
     </a>
   </div>
 
   <div class="grid-item">
     <a href="/demo3">
-      <img src="/assets/demo6-2_1600x900.png">
+      <img srcset="/assets/demo6-2_1600x900.png 1600w,
+                   /assets/demo6-2_1200x675.png 1200w,
+                   /assets/demo6-2_800x450.png 800w" alt="">   
     </a>
   </div>
 

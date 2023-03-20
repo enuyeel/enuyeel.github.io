@@ -76,7 +76,7 @@ permalink: /
 
   <div class="grid-item">
     <a href="/demo2">
-      <img srcset="/assets/demo5-2_512x512.png 512" alt="">   
+      <img srcset="/assets/demo5-2_512x512.png 512w" alt="">   
     </a>
   </div>
 

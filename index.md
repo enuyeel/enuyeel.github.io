@@ -35,6 +35,12 @@ permalink: /
   <div class="gutter-sizer"></div>
 
   <div class="grid-item">
+    <a href="/demo4">
+      <img src="/assets/raytracing_512x512.png">
+    </a>
+  </div>
+
+  <div class="grid-item">
     <a href="https://www.shadertoy.com/view/Dsy3RK">
       <!-- <img srcset="/assets/importance_sampling_visualized_1920x1080.png 1920w,
                    /assets/importance_sampling_visualized_1440x810.png 1440w,

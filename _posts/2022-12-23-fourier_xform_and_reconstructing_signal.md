@@ -386,38 +386,25 @@ $$=\sum_{k=-\infty}^{\infty}c_k\cdot \delta(\mu-\frac{k}{T})$$
 
 <br>
 
-**References**
+**Bibliography**
 
 <br>
 
-[[1] Brad Osgood, Stanford University.<br />"The Fourier Transform and its Applications."](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf)
-
-<br>
-
-[[2] Erik Cheever, Swarthmore College.<br />"Introduction to the Fourier Transform."](https://lpsa.swarthmore.edu/Fourier/Xforms/FXformIntro.html)
-
-<br>
-
-[[3] Zhang, Xichu.<br />"Orthogonal System and Fourier Series."](https://towardsdatascience.com/orthogonal-system-and-fourier-series-bec96510db98)
-
-<br>
-
-[[4] Veritasium.<br />"The Algorithm That Transformed The World."](https://youtu.be/nmgFG7PUHfo)
-
-<br>
-
-[[5] MIT OpenCourseWare.<br />"Orthogonality Relations."](https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/618691a1edaa81b0a75303e09b4cb4b5_MIT18_03SCF11_s21_7text.pdf)
-
-<br>
-
-[[6] "Fourier Transform of 1." ProofWiki](https://proofwiki.org/wiki/Fourier_Transform_of_1)
-
-<br>
-
-[[7] Riskin, Eve.<br />"The Fourier Transform."](https://class.ece.uw.edu/235dl/EE235/Project/lesson15/lesson15.html)
+[[**Osgood**]](https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf) Brad Osgood. 2007. Lecture Notes for EE 261. The Fourier Transform and its Applications. https://see.stanford.edu/materials/lsoftaee261/book-fall-07.pdf<br>
+[[**Cheever19**]](https://lpsa.swarthmore.edu/Fourier/Xforms/FXformIntro.html) Erik Cheever. 2019. Introduction to the Fourier Transform. https://lpsa.swarthmore.edu/Fourier/Xforms/FXformIntro.html<br>
+[[**Zhang21**]](https://towardsdatascience.com/orthogonal-system-and-fourier-series-bec96510db98) Xichu Zhang. 2021. Orthogonal System and Fourier Series. https://towardsdatascience.com/orthogonal-system-and-fourier-series-bec96510db98<br>
+[[**Mattuck11**]](https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/618691a1edaa81b0a75303e09b4cb4b5_MIT18_03SCF11_s21_7text.pdf) Arthur Mattuck et el. 2011. Orthogonality Relations. https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/618691a1edaa81b0a75303e09b4cb4b5_MIT18_03SCF11_s21_7text.pdf<br>
+[[**Weisstein04**]](https://mathworld.wolfram.com/FourierTransform.html) Eric W. Weisstein. 2004. Fourier Transform. https://mathworld.wolfram.com/FourierTransform.html<br>
+[[**Eve14**]](https://class.ece.uw.edu/235dl/EE235/Project/lesson15/lesson15.html) Eve Riskin et el. 2014. The Fourier Transform. https://class.ece.uw.edu/235dl/EE235/Project/lesson15/lesson15.html<br>
 
 <br>
 
 ***
 
 <br>
+
+**Updates**
+
+<br>
+
+- (04/25/23) [ (...), '**Bibliography**’]

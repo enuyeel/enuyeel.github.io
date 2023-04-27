@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+		<script type="module" crossorigin src="/assets/index-3e301802.js"></script>
+	</head>
+	<body>
+
+    <script type="x-shader/x-vertex" id="vertexShader">
+
+      //! [https://threejs.org/docs/index.html#api/en/renderers/webgl/WebGLProgram]
+
+      //uniform mat4 modelMatrix;
+      
+      //uniform mat4 modelViewMatrix;
+      
+      //uniform mat4 projectionMatrix;
+      
+      //uniform mat4 viewMatrix;
+      
+      //inverse transpose of modelViewMatrix
+      //uniform mat3 normalMatrix;
+      
+      //camera position in world space
+      //uniform vec3 cameraPosition;
+      
+      //default vertex attributes provided by BufferGeometry
+      //attribute vec3 position;
+      //attribute vec3 normal;
+      //attribute vec2 uv;
+      
+      out vec3 fragModelPosition;
+      out vec3 fragWorldNormal;
+      
+      void main() {
+      
+        //A vertex before it's transformed to World Space.
+        fragModelPosition = position;
+
+        fragWorldNormal = (modelMatrix * vec4(position, 1.)).xyz;
+      
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+      
+        //gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4( position, 1.0 );
+      
+      }
+
+    </script>
+
+		<script type="x-shader/x-fragment" id="fragmentShader">
+      
+      //! [https://threejs.org/docs/index.html#api/en/renderers/webgl/WebGLProgram]
+
+      // uniform mat4 viewMatrix;
+      // uniform vec3 cameraPosition;
+      
+      #define M_PI 3.1415926535897932384626433832795
+      
+      uniform float time;
+      in vec3 fragModelPosition;
+
+      ///  2 out, 2 in...
+      vec2 hash22(vec2 p)
+      {
+        vec3 p3 = fract(vec3(p.xyx) * vec3(.1031, .1030, .0973));
+        p3 += dot(p3, p3.yzx+33.33);
+        return fract((p3.xx+p3.yz)*p3.zy);
+      }
+
+      //[https://www.shadertoy.com/view/4djSRW]
+      //'Hash without Sine' by @Dave_Hoskins
+      //  1 out, 2 in...
+      float hash12(vec2 p)
+      {
+        vec3 p3  = fract(vec3(p.xyx) * .1031);
+        p3 += dot(p3, p3.yzx + 33.33);
+        return fract((p3.x + p3.y) * p3.z);
+      }
+
+      float noise( in vec2 x )
+      {
+        vec2 p = floor(x);
+        vec2 w = fract(x);
+    
+        // quintic interpolation
+        vec2 u = w*w*w*(w*(w*6.0-15.0)+10.0);
+        vec2 du = 30.0*w*w*(w*(w-2.0)+1.0);
+    
+        float va = hash12( p+vec2(0.,0.) );
+        float vb = hash12( p+vec2(1.,0.) );
+        float vc = hash12( p+vec2(0.,1.) );
+        float vd = hash12( p+vec2(1.,1.) );
+        
+        return va + 
+               u.x * (vb - va) + 
+               u.y * (vc - va) + 
+               u.x * u.y * (va - vb - vc + vd);
+      }
+
+      //[https://iquilezles.org/articles/fbm/]
+      float fbm(vec2 v)
+      {
+        float lacunarity = 2.0;
+        float gain = 0.5;
+        
+        float f = 1.0;
+        float amplitude = 0.5;
+        
+        float h = 0.0;
+        
+        vec2 p = 0.5 - 0.5*cos( time+vec2(0.0,2.0) );
+
+        for(int i = 0; i < 3; ++i)
+        {
+          float signal = noise(f * v);
+
+          h += amplitude * signal;
+
+          f *= lacunarity;
+          amplitude *= gain;
+        }
+
+        return h;
+      }
+
+      vec2 sphericalMapping()
+      {
+        //p scratches the surface of the sphere.
+        vec3 p = normalize(fragModelPosition);
+      
+        //asin: [-PI/2, PI/2]
+        //e.g. y =  1, asin(p.y) =  PI/2
+        //     y = -1, asin(p.y) = -PI/2
+        //! North pole has V = 1.
+        //float v = 0.5 + asin(p.y) / M_PI;
+        float v = 0.5 + asin(p.x) / M_PI;
+
+        //atan
+        //e.g. p.z / p.x =  inf; (p.x, p.z) = (0,  1)
+        //     atan(p.z / p.x) =  PI/2
+        //     p.z / p.x = -inf; (p.x, p.z) = (0, -1)
+        //     atan(p.z / p.x) = -PI/2
+        //
+        //CCWISE
+        // Q3  (-, -)   | Q2  (+, -)
+        // (PI/2 ->  0) | (0 -> -PI/2)
+        //--------------|--------------
+        // Q4  (-, +)   | Q1  (+, +)
+        // (0 -> -PI/2) | (PI/2 ->  0)
+        //float u = 0.5 + atan(p.z / p.x) / M_PI;
+        float u = 0.5 + atan(p.y / p.z) / M_PI;
+
+        return vec2(u, v);
+      }
+
+      void main() {
+
+        vec3 color = vec3(0.);
+
+        float timep = time * 0.65;
+        vec2 uv = sphericalMapping();
+        uv *= mat2(cos(timep), -sin(timep),
+                   sin(timep),  cos(timep));
+      
+        color = vec3(uv, 0.9 - uv.y * uv.x);
+
+        float value = fbm(uv);
+        float threshold = 0.5 + sin(timep) * 0.5;
+        if (value <= threshold)
+          color.rgb = vec3(0.);
+        
+        gl_FragColor = vec4(color, 1.);
+      }
+
+    </script>
+
+		
+    <!-- <script type="module"></script> -->
+
+	</body>
+</html>

@@ -20,7 +20,7 @@ This article is still in a draft state!
 
 <br>
 
-At first, it was difficult to identify the issue with the arch above the curtain, as it wasn't properly textured, as shown in the left image. I initially suspected that the problem was with my texture loading function and spent some time trying to fix it. However, I later realized that the textures were indeed properly loaded, and I had been investigating the wrong issue.<br>
+At first, it was difficult to identify the issue with the rendered scene other than the arch above the curtain wasn't properly textured, as shown in the left image. I initially suspected that the problem was with my texture loading function and spent some time trying to fix it. However, I later realized that the textures were indeed properly loaded, and I had been investigating the wrong issue.<br>
 For this project, I opted to use STB to load texture images. By default, STB's behavior is to load the first pixel at the top-left of the image, which is the opposite of what OpenGL expects. The simple way to mitigate this problem is by the following function call:
 
 <code>

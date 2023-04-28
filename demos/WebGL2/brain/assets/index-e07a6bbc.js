@@ -3624,7 +3624,7 @@ var Tf=`
     #include <premultiplied_alpha_fragment>
     #include <dithering_fragment>
 
-    float timep = time * 1.5;
+    float timep = time * 0.8;
 
     vec2 uv = sphericalMapping();
     uv *= mat2(cos(timep), -sin(timep),
@@ -3640,4 +3640,4 @@ var i=new L;n.geometry.computeBoundingBox(),n.geometry.boundingBox.getSize(i);va
 //! [https://threejs.org/examples/webgl_materials_modified.html]
 //! [https://rawcdn.githack.com/mrdoob/three.js/r114/examples/webgl_buffergeometry_instancing_lambert.html]
 var o=new to;o.wireframe=!0,o.onBeforeCompile=function(c){c.uniforms.time={value:Wi.elapsedTime},c.vertexShader=Tf,c.fragmentShader=Af,o.userData.shader=c};var a=new Tt(n.geometry,o);a.scale.setScalar(r),a.rotation.x+=.45;//!
-a.matrixWorldAutoUpdate=!0,tn.add(a)},function(t){console.log(t.loaded/t.total*100+"% loaded")},function(t){console.log("An error occured.")})}Lf();function io(){requestAnimationFrame(io);var s=Wi.getDelta();tn.traverse(function(e){e instanceof Tt&&(e.rotation.y+=s,e.material.userData.shader&&(e.material.userData.shader.uniforms.time.value=Wi.elapsedTime))}),Bn.render(tn,kn)}io();
+a.matrixWorldAutoUpdate=!0,tn.add(a)},function(t){console.log(t.loaded/t.total*100+"% loaded")},function(t){console.log("An error occured.")})}Lf();function io(){requestAnimationFrame(io);var s=Wi.getDelta();tn.traverse(function(e){e instanceof Tt&&(e.rotation.y+=s*.2,e.material.userData.shader&&(e.material.userData.shader.uniforms.time.value=Wi.elapsedTime))}),Bn.render(tn,kn)}io();

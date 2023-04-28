@@ -6,7 +6,7 @@
 		<style>
 			body { margin: 0; }
 		</style>
-		<script type="module" crossorigin src="/demos/WebGL2/brain/assets/index-56891d21.js"></script>
+		<script type="module" crossorigin src="/demos/WebGL2/brain/assets/index-e07a6bbc.js"></script>
 	</head>
 	<body>
 
@@ -34,14 +34,11 @@
       //attribute vec2 uv;
       
       out vec3 fragModelPosition;
-      out vec3 fragWorldNormal;
       
       void main() {
       
         //A vertex before it's transformed to World Space.
         fragModelPosition = position;
-
-        fragWorldNormal = (modelMatrix * vec4(position, 1.)).xyz;
       
         gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
       

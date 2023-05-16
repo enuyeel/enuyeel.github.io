@@ -35,7 +35,6 @@ $$
 -w_c\leq z_c\leq w_c
 $$
 
-
 In the next section, it explicitly states that the vertex's normalized device coordinates $$(x_d,y_d,z_d)$$ can be obtained through "perspective division" on clip coordinates as follows. One can associate the division of <code>gl_Position</code> by its w component <code>gl_Position.w</code> with "perspective division".<br>
 
 $$
@@ -58,8 +57,8 @@ The GLM (OpenGL Mathematics) library provides different perspective projection m
 
 <br>
 
-<img class="demo-page-image" src="/assets/posts/frustum/4_1.svg">
-<img class="demo-page-image" src="/assets/posts/frustum/4_2.svg">
+<img class="demo-page-image" src="/assets/posts/frustum/4_1.png">
+<img class="demo-page-image" src="/assets/posts/frustum/4_2.png">
 
 <br>
 
@@ -86,7 +85,11 @@ $$x_{d}=\frac{-2\cdot z_{near}}{r-l}\cdot \frac{x_{cam}}{z_{cam}}+\frac{-(r+l)}{
 y_{d}=\frac{-2\cdot z_{near}}{t-b}\cdot \frac{y_{cam}}{z_{cam}}+\frac{-(t+b)}{t-b}\\
 z_{d}=\frac{z_{far}+z_{near}}{z_{far}-z_{near}}+\frac{2\cdot z_{far}\cdot z_{near}}{(z_{far}-z_{near})\cdot z_{cam}}$$
 
-<br>
+Now, let's return to the topic of how we assumed that $$z_{near}$$ and $$z_{far}$$ were positive values in order to derive our initial projection matrix. We can actually treat them as negative values and proceed with deriving the projection matrix, resulting in several changes compared to our initial projection matrix. One of the most notable changes is that now $$w_c$$ equals $$z_{cam}$$, instead of $$-z_{cam}$$. I will refer to our second version of the projection matrix conveniently as $$frustumRH\_NO'$$, and it is as follows:
+
+$$z_{near},z_{far}\leq 0\\
+z_{far}\leq z_{near}\\
+z_{far}\leq z_{cam}\leq z_{near}$$
 
 $$frustumRH\_NO'=
 \begin{bmatrix}
@@ -105,13 +108,21 @@ $$x_{d}=\frac{2\cdot z_{near}}{r-l}\frac{x_{cam}}{z_{cam}}+\frac{-(r+l)}{r-l}\\
 y_{d}=\frac{2\cdot z_{near}}{t-b}\frac{y_{cam}}{z_{cam}}+\frac{-(t+b)}{t-b}\\
 z_{d}=\frac{-(z_{near}+z_{far})}{z_{near}-z_{far}}+\frac{2\cdot z_{near}\cdot z_{far}}{(z_{near}-z_{far})\cdot z_{cam}}$$
 
+You can check out that no matter which point in the camera space $$(x_{cam}, y_{cam}, z_{cam})$$ you multiply with $$frustumRH\_NO'$$, the resulting value after the perspective division $$(x_d, y_d, z_d)$$ remains identical to what you would obtain using the first version of the matrix. However, if you attempt to use the second version of the matrix in your OpenGL application, it would essentially draw nothing on the screen. What could be the reason for this? The answer lies within the definition of the clip volume as outlined in the OpenGL specifications we previously discussed, particularly in the third condition. 
+
+$$
+-w_c\leq z_c\leq w_c
+$$
+
+If we randomly choose values for $$z_{cam}$$ and calculate $$z_c$$ and $$w_c$$ using the $$frustumRH\_NO'$$, the above condition will never evaluate to true for vertices inside the view volume.
+
+<br>
+
 ***
 
 <br>
 
-<code>
-GLM_CLIP_CONTROL_LH_ZO (GLM_CLIP_CONTROL_LH_BIT | GLM_CLIP_CONTROL_ZO_BIT) 
-</code>
+TODO: Deriving different versions of the perspective projection matrix based on their handedness and the dimension of the NDC.
 
 $$frustumLH\_ZO=
 \begin{bmatrix}
@@ -121,10 +132,6 @@ $$frustumLH\_ZO=
 0 & 0 & 1 & 0
 \end{bmatrix}$$
 
-<code>
-GLM_CLIP_CONTROL_LH_NO (GLM_CLIP_CONTROL_LH_BIT | GLM_CLIP_CONTROL_NO_BIT) 
-</code>
-
 $$frustumLH\_NO=
 \begin{bmatrix}
 \frac{2\cdot z_{near}}{r-l} & 0 & \frac{r+l}{r-l} & 0 \\
@@ -132,10 +139,6 @@ $$frustumLH\_NO=
 0 & 0 & \frac{z_{far}+z_{near}}{z_{far}-z_{near}} & \frac{-2\cdot z_{far}\cdot z_{near}}{z_{far}-z_{near}} \\
 0 & 0 & 1 & 0
 \end{bmatrix}$$
-
-<code>
-GLM_CLIP_CONTROL_RH_ZO (GLM_CLIP_CONTROL_RH_BIT | GLM_CLIP_CONTROL_ZO_BIT)
-</code>
 
 $$frustumRH\_ZO=
 \begin{bmatrix}

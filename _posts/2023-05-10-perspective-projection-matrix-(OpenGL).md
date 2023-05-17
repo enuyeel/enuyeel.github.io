@@ -114,7 +114,7 @@ $$
 -w_c\leq z_c\leq w_c
 $$
 
-If we randomly choose values for $$z_{cam}$$ and calculate $$z_c$$ and $$w_c$$ using the $$frustumRH\_NO'$$, the above condition will never evaluate to true for vertices inside the view volume.
+This condition only evaluates to true for $$z_c$$, and $$w_c$$ calculated using the $$frustumRH\_NO$$. Although the $$z_d$$ values after perspective division might yield similar results for two different matrices, primitives are clipped to the clip volume in clip space before reaching the NDC space. In the case of the $$frustumRH\_NO'$$ matrix, vertices inside the view volume will never satisfy the above condition. As a result, they are guaranteed to be clipped.
 
 <br>
 
@@ -159,9 +159,6 @@ $$frustumRH\_ZO=
 <br>
 
 [[**Songho08**]](http://www.songho.ca/opengl/gl_projectionmatrix.html) Songho Ahn. 2008. OpenGL Projection Matrix. http://www.songho.ca/opengl/gl_projectionmatrix.html<br>
-
-https://stackoverflow.com/questions/4124041/is-opengl-coordinate-system-left-handed-or-right-handed
-
-https://matthewwellings.com/blog/the-new-vulkan-coordinate-system/
+[[**Wellings16**]](https://matthewwellings.com/blog/the-new-vulkan-coordinate-system/) Matthew Wellings. 2016. The New Vulkan Coordinate System. https://matthewwellings.com/blog/the-new-vulkan-coordinate-system/<br>
 
 <br>
